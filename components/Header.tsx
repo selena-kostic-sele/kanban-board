@@ -8,7 +8,7 @@ function Header() {
   return (
     <header>
       <div className="flex flex-col md:flex-row items-center p-5 rounded-b-2xl">
-        <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-br from-[#e78fb5] to-[#a4c1e2] rounded-md filter blur-3xl opacity-50 -z-50" />
+        <div className="absolute top-0 left-0 w-full h-96 bg-gradient-to-br from-[#8eeede] to-[#cdd6e0] rounded-md filter blur-3xl opacity-50 -z-50" />
 
         <Image
           src="https://kanbantool.com/developer/images/logo.png"
