@@ -3,6 +3,7 @@ const nextConfig = {
   images: {
     domains: ["kanbantool.com"],
   },
+  reactStrictMode: false,
 };
 
 module.exports = nextConfig;
