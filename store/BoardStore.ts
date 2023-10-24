@@ -1,4 +1,4 @@
-import { databases, storage } from "@/appwrite";
+import { databases } from "@/appwrite";
 import { getTodosGroupedByColumn } from "@/lib/getTodosGroupedByColumn";
 import { create } from "zustand";
 
@@ -46,6 +46,8 @@ export const useBoardStore = create<BoardState>((set, get) => ({
     newColumns.get(id)?.todos.splice(taskIndex, 1);
 
     set({ board: { columns: newColumns } });
+
+    //TODO: Check for the image implementation
 
     // if (todo.image) {
     //   await storage.deleteFile(todo.image.bucketId, todo.image.fileId)
