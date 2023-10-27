@@ -6,12 +6,12 @@ The board consists of three columns: **To Do**, **In Progress** and **Done**.
 
 You can:
 
-- add new tasks into each column
-- drag and drop tasks from one column to another as well as drag and drop tasks within the same column
-- alternate the existing tasks
+- Add new tasks into each column
+- Drag and drop tasks from one column to another as well as drag and drop tasks within the same column
+- Alternate the existing tasks
 - Keep track of how many items are there in each column
-- use the Search input field to get to you task faster
-- delete them if you do not want them to be on the Kanban Board.
+- Use the Search input field to get to you task faster
+- Delete them if you do not want them to be on the Kanban Board.
 
 When creating a new task you can add:
 
