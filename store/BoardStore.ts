@@ -19,6 +19,7 @@ interface BoardState {
   setNewTaskType: (columnId: TypedColumn) => void;
   setImage: (image: File | null) => void;
   addTask: (todo: string, columnId: TypedColumn, image?: File | null) => void;
+  updateToDoTitleInDB: (todo: Todo, updatedTitle: string) => void;
 }
 
 export const useBoardStore = create<BoardState>((set, get) => ({
@@ -134,5 +135,18 @@ export const useBoardStore = create<BoardState>((set, get) => ({
         },
       };
     });
+  },
+
+  updateToDoTitleInDB: async (todo, updatedTitle) => {
+    await databases.updateDocument(
+      process.env.NEXT_PUBLIC_DATABASE_ID!,
+      process.env.NEXT_PUBLIC_TODOS_COLLECTION_ID!,
+      todo.$id,
+      {
+        title: updatedTitle,
+      }
+    );
+
+    window.location.reload();
   },
 }));
