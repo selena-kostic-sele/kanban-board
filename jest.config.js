@@ -8,6 +8,7 @@ module.exports = {
   moduleNameMapper: {
     "^@/components(.*)$": "<rootDir>/components$1",
     "^@/store/BoardStore$": "<rootDir>/store/BoardStoreMock.ts",
+    "@/lib/getUrl": "<rootDir>/__mocks__/getUrl.ts",
   },
   setupFilesAfterEnv: ["@testing-library/jest-dom"],
 };

@@ -38,7 +38,6 @@ function TaskTypeRadioGroup() {
           value={newTaskType}
           onChange={(e) => {
             setNewTaskType(e);
-            console.log("ne task type", e);
           }}
         >
           <div className="space-y-2">
