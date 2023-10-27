@@ -2,13 +2,18 @@
 
 import { FormEvent, Fragment, useRef } from "react";
 import { Dialog, Transition } from "@headlessui/react";
-import { useModalStore } from "@/store/ModalStore";
 import { useBoardStore } from "@/store/BoardStore";
 import TaskTypeRadioGroup from "./TaskTypeRadioGroup";
 import Image from "next/image";
 import { PhotoIcon } from "@heroicons/react/24/solid";
+import { closeModal } from "@/redux/modalSlice"; // Import your actions
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/redux/store";
 
 function Modal() {
+  const isOpen = useSelector((state: RootState) => state.modal.isOpen);
+  const dispatch = useDispatch();
+
   const imagePickerRef = useRef<HTMLInputElement>(null);
 
   const [newTaskInput, setNewTaskInput, image, setImage, addTask, newTaskType] =
@@ -21,11 +26,6 @@ function Modal() {
       state.newTaskType,
     ]);
 
-  const [isOpen, closeModal] = useModalStore((state) => [
-    state.isOpen,
-    state.closeModal,
-  ]);
-
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!newTaskInput) return;
@@ -33,15 +33,18 @@ function Modal() {
     addTask(newTaskInput, newTaskType, image);
 
     setImage(null);
-    closeModal();
+    dispatch(closeModal());
+  };
+
+  const closeModalHandler = () => {
+    dispatch(closeModal());
   };
 
   return (
-    // Use the `Transition` component at the root level
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog
         onSubmit={handleSubmit}
-        onClose={closeModal}
+        onClose={closeModalHandler}
         as="form"
         className="relative z-10"
       >

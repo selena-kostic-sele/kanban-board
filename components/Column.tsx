@@ -2,7 +2,8 @@ import { PlusCircleIcon } from "@heroicons/react/24/solid";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 import ToDoCard from "./ToDoCard";
 import { useBoardStore } from "@/store/BoardStore";
-import { useModalStore } from "@/store/ModalStore";
+import { useDispatch } from "react-redux";
+import { openModal } from "@/redux/modalSlice";
 
 type Props = {
   id: TypedColumn;
@@ -23,11 +24,12 @@ function Column({ id, todos, index }: Props) {
     state.searchString,
     state.setNewTaskType,
   ]);
-  const openModal = useModalStore((state) => state.openModal);
+
+  const dispatch = useDispatch();
 
   const handleAddTodo = () => {
     setNewTaskType(id);
-    openModal();
+    dispatch(openModal());
   };
 
   return (
