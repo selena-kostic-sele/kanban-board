@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import Header from "@/components/Header"; // Import the Header component
+import Header from "@/components/Header";
 
 // Mock the useBoardStore function
 jest.mock("@/store/BoardStore", () => {
